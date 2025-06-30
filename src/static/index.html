@@ -39,6 +39,51 @@
         </form>
         <div id="message" class="hidden"></div>
       </section>
+
+      <!-- Example activity card template -->
+      <div id="activities-container">
+        <!-- Activity cards will be rendered here by app.js -->
+      </div>
+
+      <script>
+        // Example rendering function for activity cards (edit in app.js as needed)
+        function renderActivityCard(activityName, activity) {
+          return `
+            <div class="activity-card">
+              <h2>${activityName}</h2>
+              <p><strong>Description:</strong> ${activity.description}</p>
+              <p><strong>Schedule:</strong> ${activity.schedule}</p>
+              <p><strong>Max Participants:</strong> ${activity.max_participants}</p>
+              <div class="participants-section">
+                <strong>Participants:</strong>
+                <ul>
+                  ${activity.participants.length === 0
+                    ? '<li><em>No participants yet</em></li>'
+                    : activity.participants.map(email => `<li>${email}</li>`).join('')}
+                </ul>
+              </div>
+              <!-- ...existing signup form/button... -->
+            </div>
+          `;
+        }
+      </script>
+
+      <style>
+        /* ...existing code... */
+        .activity-card {
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          padding: 1.5em;
+          margin-bottom: 1.5em;
+          background: #f9fafb;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .activity-card h2 {
+          margin-top: 0;
+          color: #2563eb;
+        }
+        .participants-section {
+      </style>
     </main>
 
     <footer>
